@@ -10,6 +10,14 @@ class stores(models.Model):
     categories = models.CharField(max_length=50, blank=True)
     phone = models.CharField(max_length=50, blank=True)
     time = models.CharField(max_length=50, blank=True)
+    ActiveDate = models.CharField(max_length=50, blank=True)
+    facebook = models.CharField(max_length=50, blank=True)
+    instagram = models.CharField(max_length=50, blank=True)
+    logo = models.URLField(max_length=500, blank=True)
+    values = models.JSONField(blank=True, default=list)
+    qualities = models.JSONField(blank=True, default=list)
+    ethics = models.JSONField(blank=True, default=list)
+    benefits = models.JSONField(blank=True, default=list)
 
 
 def __str__(self):
