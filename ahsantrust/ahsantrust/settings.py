@@ -121,7 +121,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-FIREBASE_ADMIN_CREDENTIALS = "/Users/mahsoomsateemae/Documents/Ahsan-Trust-be/ahsantrustmark-firebase-adminsdk-pt9wy-1eb677411f.json"
+FIREBASE_ADMIN_CREDENTIALS = "/Users/noor-iman/Documents/AHSAN Trust/Ahsan-trust-be/ahsantrust/ahsan-trustmark-firebase-adminsdk-ditsl-dcd5678306.json"
 FIREBASE_STORAGE_BUCKET = "ahsantrustmark"
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
