@@ -14,14 +14,16 @@ class NewsAdminForm(forms.ModelForm):
         instance = super().save(commit=False)
         image = self.cleaned_data.get("image")
 
-        if isinstance(image, forms.ImageField):  # Check if image is actually a file
-            # Upload the new image to Firebase
+        if image and not isinstance(image, str):
             blob = bucket.blob(f"newsImg/{image.name}")
             blob.upload_from_file(image.file, content_type=image.content_type)
             blob.make_public()
             instance.image = blob.public_url
+        elif isinstance(instance.image, str):
+            # If image is already a URL (string), keep it unchanged
+            instance.image = instance.image
         else:
-
+            # If no new image is provided, keep the existing one
             instance.image = instance.image
 
         if commit:
