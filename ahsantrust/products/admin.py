@@ -6,7 +6,7 @@ from .forms import ProductAdminForm, ProductImageForm
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     form = ProductImageForm
-    extra = 1
+    extra = 2
     readonly_fields = ("image_url",)
 
 

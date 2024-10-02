@@ -13,6 +13,7 @@ VALUES_CHOICES = [
 QUALITIES_CHOICES = [
     ("Quality of Raw Materials", "Quality of Raw Materials"),
     ("Product Safety Quality", "Product Safety Quality"),
+    ("Consistency of Product","Consistency of Product")
 ]
 
 ETHICS_CHOICES = [
