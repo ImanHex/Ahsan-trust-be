@@ -1,7 +1,6 @@
 from django.urls import path
-from .views import ProductRegistrationAPIView, FileUploadTestAPIView
+from .views import ProductRegistrationAPIView
 
 urlpatterns = [
     path('product', ProductRegistrationAPIView.as_view(), name='register-product-api'),
-    path('test', FileUploadTestAPIView.as_view(), name='register-product-test'),
 ]

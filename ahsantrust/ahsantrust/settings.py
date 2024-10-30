@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     "stores",
     "corsheaders",
     "news",
-    "products"
+    "products",
+    "register"
 ]
 
 MIDDLEWARE = [
