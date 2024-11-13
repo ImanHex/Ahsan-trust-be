@@ -5,6 +5,7 @@ services:
     command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
+    image: nureman/deploylab-backend:latest
     ports:
       - "8080:8080"
     networks:
