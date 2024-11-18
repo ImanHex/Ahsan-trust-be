@@ -42,3 +42,4 @@ sqlparse @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_1
 typing_extensions @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_93dg13ilv4/croot/typing_extensions_1715268840722/work
 uritemplate==4.1.1
 urllib3==2.2.3
+gunicorn

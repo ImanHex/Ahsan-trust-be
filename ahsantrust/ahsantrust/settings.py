@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-!r!kc_7*d_m13ow2lq(5pk0%b3m0ztgjqc0o0k#e$tia*=^5d^"
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -93,11 +93,11 @@ WSGI_APPLICATION = "ahsantrust.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "ahsantrust",
-        "USER": "root",
-        "PASSWORD": "readnrecharge123",
-        "HOST": "127.0.0.1",
-        "PORT": "3306",
+        "NAME": config('DB_NAME'),
+        "USER": config('DB_USER'),
+        "PASSWORD": config('DB_PASSWORD'),
+        "HOST": config('DB_HOST'),
+        "PORT": config('DB_PORT', default='3306'),
     }
 }
 
@@ -125,15 +125,15 @@ REST_FRAMEWORK = {
     ]
 }
 
-FIREBASE_ADMIN_CREDENTIALS = "/Users/noor-iman/Documents/AHSAN Trust/Ahsan-trust-be/ahsantrust/ahsan-trustmark-firebase-adminsdk-ditsl-dcd5678306.json"
-FIREBASE_STORAGE_BUCKET = "ahsan-trustmark"
+FIREBASE_ADMIN_CREDENTIALS =config('FIREBASE_ADMIN_CREDENTIALS')
+FIREBASE_STORAGE_BUCKET = config('FIREBASE_STORAGE_BUCKET')
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')  # Loaded from .env
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 
@@ -153,6 +153,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
