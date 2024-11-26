@@ -12,21 +12,23 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 from decouple import config
+import dj_database_url
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(os.path.join(BASE_DIR,".env"))
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-!r!kc_7*d_m13ow2lq(5pk0%b3m0ztgjqc0o0k#e$tia*=^5d^"
-
-# SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '167.172.93.121']
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -63,7 +65,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Local development
-    "https://ahsan-trust-fe.vercel.app",  # Deployed React app
+    "https://ahsan-trust-fe.vercel.app",
+    "http://167.172.93.121"
 ]
 
 ROOT_URLCONF = "ahsantrust.urls"
@@ -91,14 +94,9 @@ WSGI_APPLICATION = "ahsantrust.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "ahsantrust",
-        "USER": "root",
-        "PASSWORD": "readnrecharge123",
-        "HOST": "127.0.0.1",
-        "PORT": "3306",
-    }
+    "default": dj_database_url.config(
+        default="sqlite:///"+os.path.join(BASE_DIR,"db.sqlite3")
+    )
 }
 
 # Password validation
@@ -125,8 +123,8 @@ REST_FRAMEWORK = {
     ]
 }
 
-FIREBASE_ADMIN_CREDENTIALS = "/Users/noor-iman/Documents/AHSAN Trust/Ahsan-trust-be/ahsantrust/ahsan-trustmark-firebase-adminsdk-ditsl-dcd5678306.json"
-FIREBASE_STORAGE_BUCKET = "ahsan-trustmark"
+FIREBASE_ADMIN_CREDENTIALS = os.environ.get('FIREBASE_ADMIN_CREDENTIALS')
+FIREBASE_STORAGE_BUCKET = os.environ.get('FIREBASE_STORAGE_BUCKET')
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
