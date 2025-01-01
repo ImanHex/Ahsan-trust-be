@@ -2,20 +2,20 @@ version: "3.9"
 
 services:
   frontend:
-    image: registry.gitlab.com/ahsan7211007/ahsan-web:latest
-    container_name: frontend
+    image: registry.gitlab.com/ahsan7211007/ahsan-web-salepage:dev-20241122
+    container_name: ahsan-web-salepage
     ports:
       - "80:80"
 
   backend:
     build:
       context: .
-    container_name: backend
+    container_name: ahsan-backend
     ports:
       - "8000:8000"
     volumes:
-      - ./backend:/app
+      - .:/app
     env_file:
-      - ./backend/.env
+      - .env
     depends_on:
       - frontend

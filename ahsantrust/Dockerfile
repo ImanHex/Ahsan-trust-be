@@ -1,17 +1,13 @@
-FROM python:3.8-slim
+FROM python:3.11
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y gcc
-
-COPY requirements.txt /app/
+COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /app/
-
-RUN python manage.py collectstatic --noinput
+COPY . .
 
 EXPOSE 8000
 
-CMD ["gunicorn", "ahsantrust.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
