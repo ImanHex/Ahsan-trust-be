@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     "corsheaders",
     "news",
     "products",
-    "register"
+    "register",
+    'announcements'
 ]
 
 MIDDLEWARE = [
