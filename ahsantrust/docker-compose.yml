@@ -2,8 +2,8 @@ version: "3.9"
 
 services:
   frontend:
-    image: registry.gitlab.com/ahsan7211007/ahsan-web-salepage:dev-20241122
-    container_name: ahsan-web-salepage
+    image: ahsanfrontend
+    container_name: ahsan-web-salepage-front
     ports:
       - "80:80"
 
