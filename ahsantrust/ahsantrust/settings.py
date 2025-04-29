@@ -67,7 +67,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Local development
     "https://ahsan-trust-fe.vercel.app",
-    "http://167.172.93.121"
+    "http://167.172.93.121",
+    "http://146.190.101.75"
 ]
 
 ROOT_URLCONF = "ahsantrust.urls"
@@ -95,9 +96,17 @@ WSGI_APPLICATION = "ahsantrust.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": dj_database_url.config(
-        default="sqlite:///"+os.path.join(BASE_DIR,"db.sqlite3")
-    )
+    # "default": dj_database_url.config(
+    #     default="sqlite:///"+os.path.join(BASE_DIR,"db.sqlite3")
+    # )
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "ahsantrust",
+        "USER": "root",
+        "PASSWORD": "readnrecharge123",
+        "HOST": "127.0.0.1",
+        "PORT": "3306",
+    }
 }
 
 # Password validation
