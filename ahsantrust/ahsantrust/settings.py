@@ -27,7 +27,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '167.172.93.121']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '146.190.101.75']
 
 
 
