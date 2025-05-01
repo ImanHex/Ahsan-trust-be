@@ -1,6 +1,17 @@
 version: "3.9"
 
 services:
+  db:
+    image: mysql:5.7
+    container_name: ahsan-db
+    environment:
+      MYSQL_DATABASE: ahsantrust
+      MYSQL_ROOT_PASSWORD: readnrecharge123
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+
   frontend:
     image: ahsanfrontend
     container_name: ahsan-web-salepage-front
@@ -18,4 +29,7 @@ services:
     env_file:
       - .env
     depends_on:
-      - frontend
+      - db
+
+volumes:
+  dbdata:
