@@ -11,5 +11,5 @@ class AnnounceDeleteView(generics.DestroyAPIView):
     serializer_class = AnnounceSerializer
 
 class AnnounceListView(generics.ListAPIView):
-    queryset = announce.objects.all()
+    queryset = announce.objects.all().order_by('-id')[:5]
     serializer_class = AnnounceSerializer

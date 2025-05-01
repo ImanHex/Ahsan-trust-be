@@ -19,7 +19,7 @@ class NewsView(generics.CreateAPIView):
 
 
 class NewsListView(generics.ListAPIView):
-    queryset = news.objects.all()
+    queryset = news.objects.all().order_by('-id')[:30]
     serializer_class = NewSerializer
 
 
